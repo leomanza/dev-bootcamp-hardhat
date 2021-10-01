@@ -1,6 +1,7 @@
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
+ require('solidity-coverage')
 require("@nomiclabs/hardhat-waffle")
 require("@nomiclabs/hardhat-ethers")
 require("@nomiclabs/hardhat-truffle5")
@@ -32,28 +33,28 @@ const PRIVATE_KEY = process.env.PRIVATE_KEY || "your private key"
 module.exports = {
     defaultNetwork: "hardhat",
     networks: {
-        hardhat: {
-            // // If you want to do some forking, uncomment this
-            // forking: {
-            //   url: MAINNET_RPC_URL
-            // }
-        },
+        // hardhat: {
+        //     // If you want to do some forking, uncomment this
+        //     forking: {
+        //       url: MAINNET_RPC_URL
+        //     }
+        // },
         localhost: {
         },
         kovan: {
             url: KOVAN_RPC_URL,
-            // accounts: [PRIVATE_KEY],
-            accounts: {
-                mnemonic: MNEMONIC,
-            },
+            accounts: [PRIVATE_KEY],
+            // accounts: {
+            //     mnemonic: MNEMONIC,
+            // },
             saveDeployments: true,
         },
         rinkeby: {
             url: RINKEBY_RPC_URL,
-            // accounts: [PRIVATE_KEY],
-            accounts: {
-                mnemonic: MNEMONIC,
-            },
+            accounts: [PRIVATE_KEY],
+            // accounts: {
+            //     mnemonic: MNEMONIC,
+            // },
             saveDeployments: true,
         },
         ganache: {
